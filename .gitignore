@@ -2,3 +2,4 @@ venv
 paoSystem/__pycache__
 db.sqlite3
 main/__pycache__
+main/migrations/__pycache__
