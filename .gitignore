@@ -1,5 +1,4 @@
 venv
 paoSystem/__pycache__
 db.sqlite3
-main/migrations/*
 main/__pycache__
