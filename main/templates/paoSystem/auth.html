@@ -14,6 +14,11 @@
     display: table-cell;
     vertical-align: middle;
 }
+
+.alert-warning {
+    background-color: #fff;
+    color:rgb(154, 8, 8);    
+}
 /* Form Style */
 .form-horizontal{
  background: rgb(48, 47, 47);
@@ -59,36 +64,11 @@
 .form-horizontal .form-control:focus + i{
  color: #00b4ef;
 }
-.form-horizontal .fa-question-circle{
- display: inline-block;
- position: absolute;
- top: 12px;
- right: 60px;
- font-size: 20px;
- color: #808080;
- transition: all 0.5s ease 0s;
-}
+
 .form-horizontal .fa-question-circle:hover{
  color: #000;
 }
-.form-horizontal .main-checkbox{
- float: left;
- width: 20px;
- height: 20px;
- background: #11a3fc;
- border-radius: 50%;
- position: relative;
- margin: 5px 0 0 5px;
- border: 1px solid #11a3fc;
-}
-.form-horizontal .main-checkbox label{
- width: 20px;
- height: 20px;
- position: absolute;
- top: 0;
- left: 0;
- cursor: pointer;
-}
+
 
 .form-horizontal .text{
  float: left;
@@ -126,15 +106,17 @@
  <div class="row vertical-center-row ">
 
  <div class="col-md-offset-4 col-md-4  ">
- <form class="form-horizontal">
+ <form class="form-horizontal" method="POST">
+    {% csrf_token %}
  <span class="heading" style = "color: #fff;">
-<img src = "{% static img/logo.png %}" width="80" height="50">ПАО System</span>
+
+<img src = "{% static 'img/logo.png' %}" width="80" height="50">ПАО System</span>
  <div class="form-group">
- <input type="text" class="form-control" id="inputEmail" placeholder="Login">
+ <input type="text" class="form-control" id="inputEmail" placeholder="Имя пользователя" name = "login">
  <i class="fa fa-user"></i>
  </div>
  <div class="form-group help">
- <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+ <input type="password" class="form-control" id="inputPassword" placeholder="Пароль", name = "password">
  <i class="fa fa-lock"></i>
 
  </div>
@@ -142,8 +124,18 @@
 
 
  <button type="submit" class="btn btn-default">ВХОД</button>
- </div>
+
+
+</div>
+{% for message in messages %}
+<div class = "alert-warning">
+  {{message}}  
+</div>
+{% endfor %}
+</div>
+
  </form>
+ 
  </div>
 
  </div><!-- /.row -->
