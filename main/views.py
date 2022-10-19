@@ -1,7 +1,7 @@
 
 from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
@@ -19,8 +19,7 @@ def main(request):
 def home (request):
    
    u = User.objects.get(id = request.user.id)
-   post = u.userprofile.post
-   print(post)
+   post = {"post": u.userprofile.post, "depart":u.userprofile.department}
 
    return render(request, "paoSystem/home.html", {'post': post})
 
@@ -45,6 +44,7 @@ def userAuth(request):
 
    return render(request, "paoSystem/auth.html" )
 
-def logout(request):
-   pass
+def user_logout(request):
+   logout(request)
+   return redirect("login")
 
