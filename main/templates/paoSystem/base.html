@@ -41,7 +41,7 @@
         </div>
         
         <div class="user">
-        <span class="user-content">{{request.user.get_full_name}}: {{post.post}} ({{post.depart}})</span> <br>
+        <span class="user-content">{{request.user.get_full_name}}: {{request.user.post}} ({{request.user.department}})</span> <br>
         <span class="user-content"> <a href = "{% url 'logout' %}" class = "lk-url">Выйти из системы</a></span>
         </span>
        </div>
