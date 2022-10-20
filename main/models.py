@@ -1,13 +1,17 @@
 from tabnanny import verbose
 from django.db import models
-
-from django.contrib.auth.models import User
+from datetime import date
+from django.utils import timezone
+from django.contrib.auth.models import AbstractUser
  
- 
-class UserProfile(models.Model):
-    user = models.OneToOneField(User,  on_delete = models.CASCADE)
-    post = models.CharField(max_length = 200, verbose_name = "Должность" , null = True)
-    department = models.CharField(max_length = 30, verbose_name = "Отдел", null = True)
+class User(AbstractUser):
+    department = models.CharField(max_length = 100, blank = True, null = True, verbose_name = "Отдел")
+    post = models.CharField(max_length = 50, blank = True, null = True, verbose_name = "Должность")
+    dateBith = models.DateField(default = timezone.now, verbose_name = "Дата рождения")
 
-    def __unicode__(self):
-        return self.post
+    def getAge (self):
+
+        today = date.today()
+        age = today.year - self.dateBith.year - ((today.month, today.day) < ( self.dateBith.month,  self.dateBith.day))
+        return age
+
