@@ -2,9 +2,12 @@
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+ENV = Path(__file__).resolve().parent
+#load_dotenv(os.path.join(ENV, ".env"))
 
 
 # Quick-start development settings - unsuitable for production
@@ -16,7 +19,7 @@ SECRET_KEY = "*"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["paosystem.nsuem.ru"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -29,6 +32,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "main",
+    "debug_toolbar",
 ]
 
 MIDDLEWARE = [
@@ -39,6 +43,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "paoSystem.urls"
@@ -67,8 +72,11 @@ WSGI_APPLICATION = "paoSystem.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "paosystem",
+        'USER': "djangoadmin",
+        'PASSWORD':  "paosystem",
+        'HOST':  "localhost"     
     }
 }
 
@@ -97,7 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "ru-ru"
 
-TIME_ZONE = "Asia/Novosibirsk"
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
@@ -115,3 +123,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
+]
