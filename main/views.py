@@ -3,9 +3,8 @@ from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
 
-from .models import UserProfile
+from .models import User
 
 # Create your views here.
 
@@ -18,10 +17,7 @@ def main(request):
 @login_required(login_url = 'login')
 def home (request):
    
-   u = User.objects.get(id = request.user.id)
-   post = {"post": u.userprofile.post, "depart":u.userprofile.department}
-
-   return render(request, "paoSystem/home.html", {'post': post})
+   return render(request, "paoSystem/home.html")
 
 
 def userAuth(request):
