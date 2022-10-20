@@ -76,7 +76,8 @@ DATABASES = {
         "NAME": "paosystem",
         'USER': "djangoadmin",
         'PASSWORD':  "paosystem",
-        'HOST':  "localhost"     
+        'HOST':  "127.0.0.1"
+        
     }
 }
 
