@@ -1,19 +1,30 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from django.contrib.auth.models import User
-from .models import UserProfile
- 
- 
-class UserInline(admin.StackedInline):
-    model = UserProfile
-    can_delete = False
-    verbose_name_plural = 'userprofile'
- 
-# Определяем новый класс настроек для модели User
-class UserAdmin(UserAdmin):
-    inlines = (UserInline, )
- 
-# Перерегистрируем модель User
-admin.site.unregister(User)
-admin.site.register(User, UserAdmin)
-# Register your models here.
+from .models import User
+
+
+class CustomUserAdmin(UserAdmin):
+    fieldsets = (
+        (None, {
+            'fields': ('username', 'password')
+        }),
+        ('Персональная информация', {
+            'fields': ('first_name', 'last_name', 'email', 'dateBith')
+        }),
+        ('Права', {
+            'fields': (
+                'is_active', 'is_staff', 'is_superuser',
+                'groups', 'user_permissions'
+                )
+        }),
+        ('Системные даты', {
+            'fields': ('last_login', 'date_joined')
+        }),
+        ('Служебная информация', {
+            'fields': ('department', 'post')
+        })
+    )
+
+admin.site.register(User, CustomUserAdmin)
+
+
