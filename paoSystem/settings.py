@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 ENV = Path(__file__).resolve().parent
-#load_dotenv(os.path.join(ENV, ".env"))
+load_dotenv(os.path.join(ENV, ".env"))
 
 
 # Quick-start development settings - unsuitable for production
@@ -72,11 +72,11 @@ WSGI_APPLICATION = "paoSystem.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "paosystem",
-        'USER': "djangoadmin",
-        'PASSWORD':  "paosystem",
-        'HOST':  "127.0.0.1"
+        "ENGINE": os.environ.get("ENGINE", "django.db.backends.sqlite3"),
+        "NAME": os.environ.get("DB", BASE_DIR / "db.sqlite3"),
+        'USER': os.environ.get("USER"),
+        'PASSWORD':  os.environ.get("PASSWORD"),
+        'HOST':  os.environ.get("HOST")
         
     }
 }
@@ -124,6 +124,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+AUTH_USER_MODEL = 'main.User'
 
 INTERNAL_IPS = [
     # ...
