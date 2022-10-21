@@ -8,3 +8,7 @@ from django.contrib.auth.decorators import login_required
 @login_required(login_url="login")
 def paoMain(request):
    return render(request, "pao/trackerIssues.html")
+
+@login_required(login_url="login")
+def file(request):
+   return render(request,"pao/file.html")
