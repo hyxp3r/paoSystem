@@ -4,7 +4,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
-from .models import User
 
 # Create your views here.
 
@@ -14,10 +13,6 @@ def main(request):
    else:
       return redirect("login")
 
-@login_required(login_url = 'login')
-def home (request):
-   
-   return render(request, "paoSystem/home.html")
 
 
 def userAuth(request):
@@ -38,9 +33,16 @@ def userAuth(request):
       else:
          messages.info(request, "Имя пользователя или пароль не верны")
 
-   return render(request, "paoSystem/auth.html" )
+   return render(request, "main/auth.html" )
 
 def user_logout(request):
    logout(request)
    return redirect("login")
+
+
+
+@login_required(login_url = 'login')
+def home (request):
+   
+   return render(request, "main/home.html")
 
