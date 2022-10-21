@@ -1,0 +1,113 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+
+
+
+<body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top " >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="{% static 'img/logo.png' %}" alt="" width="80" height="50" class="d-inline-block align-text-center">
+            ПАО System
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Главная</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'pao' %}">Трекер</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Группы</a>
+              </li>
+
+            </ul>
+          </div>
+
+        </div>
+        
+        <div class="user">
+        <span class="user-content">{{request.user.get_full_name}}: {{request.user.post}} ({{request.user.department}})</span> <br>
+        <span class="user-content"> <a href = "{% url 'logout' %}" class = "lk-url">Выйти из системы</a></span>
+        </span>
+       </div>
+      </nav>
+
+      {% block content %}
+      {% endblock %} 
+
+        <footer class="bg-dark text-center text-lg-start text-white mt-auto  ">
+        <!-- Grid container -->
+        <div class="container  p-2" style="display: flex; justify-content: center;" >
+            <!--Grid row-->
+            <div class="row mt-4 " style="display: flex; justify-content: center; ">
+                
+            
+            <!--Grid column-->
+            <div class="col-lg-6 col-md-6 mb-2 mb-md-2 ">
+
+                <h5 class="text-uppercase">Наши проекты</h5>
+    
+                <ul class="list-unstyled mb-0">
+                <li>
+                    <a href="#!" class="text-white">Дашборды</a>
+                </li>
+                <li>
+                    <a href="#!" class="text-white"></i>Телеграм Боты</a>
+                </li>
+                <li>
+                    <a href="#!" class="text-white"></i>Системы контроля</a>
+                </li>
+                </ul>
+            </div>
+            
+    
+            <!--Grid column-->
+            <div class="col-lg-6 col-md-6 mb-4 mb-md-0" style="padding-left: 40px;">
+                <h5 class="text-uppercase"  >Контакты</h5>
+    
+                <ul class="list-unstyled">
+                <li>
+                    a.s.gintoft@nsuem.ru
+                </li>
+                <li>
+                    e.n.ermakov@nsuem.ru
+                </li>
+                <li>
+                    m.a.lepustin@nsuem.ru
+                </li>
+                </ul>
+            </div>
+            <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </div>
+        <!-- Grid container -->
+    
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+            © 2022 Copyright:
+            <a class="text-white" href="https://nsuem.ru/">nsuem.ru</a>
+        </div>
+        <!-- Copyright -->
+        </footer>
+  
+ 
+  <!-- End of .container -->
+    
+</body>
+</html>
