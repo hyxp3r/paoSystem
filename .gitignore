@@ -4,3 +4,5 @@ db.sqlite3
 main/__pycache__
 main/migrations/__pycache__
 paoSystem/.env
+pao/__pycache__
+pao/migrations/__pycache__
