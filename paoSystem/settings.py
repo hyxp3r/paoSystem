@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "main",
+    "pao",
     "debug_toolbar",
 ]
 
@@ -74,7 +75,7 @@ DATABASES = {
     "default": {
         "ENGINE": os.environ.get("ENGINE", "django.db.backends.sqlite3"),
         "NAME": os.environ.get("DB", BASE_DIR / "db.sqlite3"),
-        'USER': os.environ.get("USER"),
+        'USER': os.environ.get("USER_DB"),
         'PASSWORD':  os.environ.get("PASSWORD"),
         'HOST':  os.environ.get("HOST")
         
