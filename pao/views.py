@@ -11,4 +11,9 @@ def paoMain(request):
 
 @login_required(login_url="login")
 def file(request):
+
+   if request.method == "POST":
+      username = request.POST.get("flexRadioDefault").value()
+      print(username)
+
    return render(request,"pao/file.html")
