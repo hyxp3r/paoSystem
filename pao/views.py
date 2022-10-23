@@ -17,12 +17,12 @@ def paoMain(request):
 def file(request):
 
    form = Proccess1CFileForm()
-
+   
    if request.method == "POST":
 
       form = Proccess1CFileForm(request.POST, request.FILES)
       if form.is_valid():
-         
+
          type = form.cleaned_data["types"]
          file = form.cleaned_data["file"]
          response = files1C().getInfo(file, type)
@@ -30,9 +30,9 @@ def file(request):
          if response:
             return response
          else:
-            messages.info(request, "Запрос отклонен. Проверьте файл на соответствие шаблону 1C.")
+            messages.info(request, "Запрос отклонен. Проверьте файл на соответствие шаблону 1С!")
       else:
-            messages.info(request, "Запрос отклонен. Загрузите файл формата .xlsx")
+            messages.info(request, "Запрос отклонен. Загрузите файл формата .xlsx!")
          
             
          
