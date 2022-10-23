@@ -1,8 +1,4 @@
-aside {
-    border: 2px solid #ded394;
-   
-}
-
-#formFile {
-    border: 1px solid black;
+#formDiv {
+    margin-top:30px;
+    margin-bottom: 30px;
 }
