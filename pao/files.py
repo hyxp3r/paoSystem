@@ -19,11 +19,10 @@ class files1C():
 
         self.df = df.loc[(df['Должность.Категория статистического учета'].isin(['Научные и научно-педагогические работники', 'НС',
         'ППС','Преподаватели СПО']))]
-        
+
         return self.df
 
     def getInfo(self, file, type):
-
 
         try:
             self.data = pd.read_excel(file, skiprows=[0,1], header=1)
@@ -37,16 +36,12 @@ class files1C():
             return self.response
 
         if type == "Admin":
-            print("Admin")
             self.df = self.Admin(self.df)
         elif type == "Teacher":
-            print("Teacher")
             self.df = self.Teacher(self.df)
         elif type == "All":
             pass
         
-        
         self.df.to_excel(self.response,index=False)
        
-
         return self.response
