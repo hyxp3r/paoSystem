@@ -33,9 +33,10 @@ def file(request):
             messages.info(request, "Запрос отклонен. Проверьте файл на соответствие шаблону 1С!")
       else:
             messages.info(request, "Запрос отклонен. Загрузите файл формата .xlsx!")
-         
-            
-         
-
 
    return render(request,"pao/file.html", {"form":form})
+
+
+def tracker(request):
+   
+   return render(request, "pao/trackerIssues.html")
