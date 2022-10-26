@@ -14,3 +14,13 @@
 .headingTracker {
     margin-bottom: 25px;
 }
+
+.trackerURL{
+    color:rgb(255, 255, 255);
+    text-decoration: none;
+}
+.trackerURL:hover {
+    text-decoration: none;
+    color: rgb(89, 88, 88);
+}
+
