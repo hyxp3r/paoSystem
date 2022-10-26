@@ -32,4 +32,10 @@ class Tracker(models.Model):
     naSoglScience = models.IntegerField(verbose_name = "На согласовании наука", default = 0)
     naSoglredact = models.IntegerField(verbose_name = "На согласовании редакционный отдел", default = 0)
 
+    class Meta:
 
+        verbose_name = 'Трекер'
+        verbose_name_plural = 'Трекер'
+
+    def __str__(self) -> str:
+        return self.createdTime
