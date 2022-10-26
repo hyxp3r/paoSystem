@@ -6,12 +6,13 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import Proccess1CFileForm
 from .files import files1C
+from .models import Tracker
 
-import pandas as pd
+
 # Create your views here.
 @login_required(login_url="login")
 def paoMain(request):
-   return render(request, "pao/trackerIssues.html")
+   return render(request, "pao/main.html")
 
 @login_required(login_url="login")
 def file(request):
@@ -36,7 +37,9 @@ def file(request):
 
    return render(request,"pao/file.html", {"form":form})
 
-
+@login_required(login_url="login")
 def tracker(request):
    
-   return render(request, "pao/trackerIssues.html")
+   issue = Tracker.objects.order_by('-createdTime')[:1]
+   
+   return render(request, "pao/trackerIssues.html", {"issue": issue[0]})
