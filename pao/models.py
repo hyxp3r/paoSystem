@@ -38,4 +38,4 @@ class Tracker(models.Model):
         verbose_name_plural = 'Трекер'
 
     def __str__(self) -> str:
-        return self.createdTime
+        return (self.createdTime.strftime("%d-%m-%Y %H:%M:%S") )
