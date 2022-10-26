@@ -13,8 +13,9 @@
 <div class="container " style="padding-top: 10; padding-bottom: 20px; ">
   <div style = "padding-top: 15px;">
     <h1 class= "d-flex align-items-center"style="margin-top: 20px;  ">Отчет по работе в трекере</h1>
-    <span class = "d-flex align-items-end flex-column mt-auto p-2" >Дата обновления: 26.10.2022 0:39:15</span>
+    <span class = "d-flex align-items-end flex-column mt-auto p-2" >Дата обновления: {{issue.createdTime}}</span>
   </div>
+
   
  <div class="content border border-4" >
 <div class = "row" style="padding: 10px ;" >
@@ -24,7 +25,7 @@
             <div class="card text-white bg-secondary mb-3  text-center" >
                 <div class="card-header d-flex align-items-center justify-content-center" style="min-height: 5rem;">Не согласовано никем</div>
                 <div class="card-body">
-                  <h5 class="card-title" >45</h5>
+                  <h5 class="card-title" >{{issue.nobody}}</h5>
                   
                 </div>
               </div>
@@ -33,7 +34,7 @@
         <div class="card text-white bg-secondary mb-3 text-center" >
             <div class="card-header d-flex align-items-center justify-content-center" style="min-height: 5rem;">Cогласовано только деканами</div>
             <div class="card-body">
-              <h5 class="card-title">119</h5>
+              <h5 class="card-title">{{issue.soglDecan}}</h5>
               
             </div>
           </div>
@@ -43,7 +44,7 @@
         <div class="card text-white bg-secondary mb-3 text-center" >
             <div class="card-header d-flex align-items-center justify-content-center" style="min-height: 5rem;">Без визы ректора</div>
             <div class="card-body">
-              <h5 class="card-title">12</h5>
+              <h5 class="card-title">{{issue.bezRectorVisa}}</h5>
               
             </div>
           </div>
@@ -53,7 +54,7 @@
         <div class="card text-white bg-secondary mb-3 text-center" >
             <div class="card-header d-flex align-items-center justify-content-center" style="min-height: 5rem;">Может согласовать ПАО</div>
             <div class="card-body">
-              <h5 class="card-title">11</h5>
+              <h5 class="card-title">{{issue.paoCan}}</h5>
               
             </div>
           </div>
@@ -67,7 +68,7 @@
             <div class="card text-white mb-3 text-center" style="background-color: rgb(109, 79, 173) ;" >
                 <div class="card-header">На согласовании деканов</div>
                 <div class="card-body">
-                  <h5 class="card-title">103</h5>
+                  <h5 class="card-title">{{issue.naSoglDecan}}</h5>
                   
                 </div>
               </div>
@@ -79,7 +80,7 @@
             <div class="card text-white bg-success mb-3 text-center" >
                 <div class="card-header">ФБП</div>
                 <div class="card-body">
-                  <h5 class="card-title">4</h5>
+                  <h5 class="card-title">{{issue.fbp}}</h5>
                   
                 </div>
               </div>
@@ -88,7 +89,7 @@
       <div class="card text-white bg-info mb-3 text-center" >
           <div class="card-header">ФГС</div>
           <div class="card-body">
-            <h5 class="card-title">5</h5>
+            <h5 class="card-title">{{issue.fgs}}</h5>
             
           </div>
         </div>
@@ -98,7 +99,7 @@
       <div class="card text-white bg-warning mb-3 text-center" >
           <div class="card-header">ФКЭП</div>
           <div class="card-body">
-            <h5 class="card-title">6</h5>
+            <h5 class="card-title">{{issue.fcep}}</h5>
             
           </div>
         </div>
@@ -109,7 +110,7 @@
       <div class="card text-white bg-primary mb-3 text-center" >
           <div class="card-header">ЮФ</div>
           <div class="card-body">
-            <h5 class="card-title">43</h5>
+            <h5 class="card-title">{{issue.uf}}</h5>
             
           </div>
         </div>
@@ -123,7 +124,7 @@
               <div class="card text-white mb-3 text-center" style="background-color: rgb(109, 79, 173) ;" >
                   <div class="card-header">Всего отправлено</div>
                   <div class="card-body">
-                    <h5 class="card-title">19</h5>
+                    <h5 class="card-title">{{issue.remake}}</h5>
                     
                   </div>
                 </div>
@@ -136,7 +137,7 @@
               <div class="card text-white mb-3 text-center" style="background-color: rgb(149, 78, 127) ;" >
                   <div class="card-header">Деканами</div>
                   <div class="card-body">
-                    <h5 class="card-title">19</h5>
+                    <h5 class="card-title">{{issue.remakeDecan}}</h5>
                     
                   </div>
                 </div>
@@ -146,7 +147,7 @@
         <div class="card text-white mb-3 text-center" style="background-color: rgb(119, 122, 103) ;" >
             <div class="card-header">АУП</div>
             <div class="card-body">
-              <h5 class="card-title">19</h5>
+              <h5 class="card-title">{{issue.remakeAup}}</h5>
               
             </div>
           </div>
@@ -156,7 +157,7 @@
         <div class="card text-white mb-3 text-center" style="background-color: rgb(240, 67, 67) ;" >
             <div class="card-header">Ректором</div>
             <div class="card-body">
-              <h5 class="card-title">19</h5>
+              <h5 class="card-title">{{issue.remakeRector}}</h5>
               
             </div>
           </div>
@@ -170,7 +171,7 @@
             <div class="card text-white mb-3 text-center" style="background-color: rgb(178, 75, 107) ;" >
                 <div class="card-header">Калинин Д.С.</div>
                 <div class="card-body">
-                  <h5 class="card-title">0</h5>
+                  <h5 class="card-title">{{issue.naSoglAdv}}</h5>
                   
                 </div>
               </div>
@@ -179,7 +180,7 @@
       <div class="card text-white mb-3 text-center" style="background-color: rgb(51, 70, 115) ;" >
           <div class="card-header">Коложвари Э.С.</div>
           <div class="card-body">
-            <h5 class="card-title">5</h5>
+            <h5 class="card-title">{{issue.naSoglProdject}}</h5>
             
           </div>
         </div>
@@ -189,7 +190,7 @@
       <div class="card text-white  mb-3 text-center" style="background-color: rgb(194, 162, 22) ;" >
           <div class="card-header">Обуховский Д.А.</div>
           <div class="card-body">
-            <h5 class="card-title">6</h5>
+            <h5 class="card-title">{{issue.naSoglYung}}</h5>
             
           </div>
         </div>
@@ -200,7 +201,7 @@
       <div class="card text-white mb-3 text-center" style="background-color: rgb(28, 150, 30) ;" >
           <div class="card-header">Родионова З.В.</div>
           <div class="card-body">
-            <h5 class="card-title">43</h5>
+            <h5 class="card-title">{{issue.naSoglLearn}}</h5>
             
           </div>
         </div>
@@ -214,7 +215,7 @@
       <div class="card text-white mb-3 text-center" style="background-color: rgb(149, 78, 127) ;" >
           <div class="card-header">Леднева И.В.</div>
           <div class="card-body">
-            <h5 class="card-title">15</h5>
+            <h5 class="card-title">{{issue.naSoglHr}}</h5>
             
           </div>
         </div>
@@ -224,7 +225,7 @@
       <div class="card text-white mb-3 text-center" style="background-color: rgb(119, 122, 103) ;" >
           <div class="card-header">Куницын Д.В. / Мельников В.С.</div>
           <div class="card-body">
-            <h5 class="card-title">97</h5>
+            <h5 class="card-title">{{issue.naSoglScience}}</h5>
             
           </div>
         </div>
@@ -232,9 +233,9 @@
 
   <div class = "col " >
     <div class="card text-white mb-3 text-center" style="background-color: rgb(240, 67, 67) ;" >
-        <div class="card-header">Без визы ректора</div>
+        <div class="card-header">Носырева Ю.И.</div>
         <div class="card-body">
-          <h5 class="card-title">2</h5>
+          <h5 class="card-title">{{issue.naSoglredact}}</h5>
           
         </div>
       </div>
