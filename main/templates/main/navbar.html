@@ -1,0 +1,38 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top " >
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="{% static 'main/img/logo.png' %}" alt="" width="80" height="50" class="d-inline-block align-text-center">
+        ПАО System
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ">
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Главная</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Модуль
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+              <li><a class="dropdown-item" href="{% url 'paoMain' %}">ПАО</a></li>
+              <li><a class="dropdown-item" href="#">Приемная комиссия</a></li>
+            </ul>
+          </li>
+
+        </ul>
+      </div>
+
+      <span class="navbar-text user-content text-end">{{request.user.get_full_name}}: {{request.user.post}} ({{request.user.department}}) <br>
+        <a href = "{% url 'logout' %}" class = "lk-url">Выйти из системы</a></span>
+
+    </div>
+    
+
+  </nav>
