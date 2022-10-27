@@ -7,7 +7,7 @@
 
 {%block link %} 
 <link rel="stylesheet" href="{% static 'pao/css/pao.css' %}"> 
-<script src="{%static 'pao/js/script.js' %}"> </script>
+<script src="{%static 'pao/js/size.js' %}"> </script>
 {% endblock %}
 
 <div class="container " style="padding-top: 10; padding-bottom: 20px; ">
@@ -23,7 +23,7 @@
   
     <div class = "col"  >
             <div class="card text-white bg-secondary mb-3  text-center" >
-                <div class="card-header d-flex align-items-center justify-content-center" style="min-height: 5rem;">Не согласовано никем</div>
+                <div class="card-header d-flex align-items-center justify-content-center" style="min-height: 5rem;" id = "one">Не согласовано никем</div>
                 <div class="card-body">
                     <h5 class="card-title" > 
                       <a href = "https://ec.nsuem.ru/projects/pf23/issues?utf8=%E2%9C%93&set_filter=1&sort=id%3Adesc&f%5B%5D=cf_26&op%5Bcf_26%5D=%21*&f%5B%5D=cf_43&op%5Bcf_43%5D=%21*&f%5B%5D=cf_27&op%5Bcf_27%5D=%21*&f%5B%5D=&c%5B%5D=tracker&c%5B%5D=cf_2&c%5B%5D=subject&c%5B%5D=cf_4&c%5B%5D=cf_5&c%5B%5D=cf_6&c%5B%5D=cf_7&c%5B%5D=estimated_hours&group_by=&t%5B%5D=estimated_hours&t%5B%5D=cf_4&t%5B%5D=cf_5&t%5B%5D=cf_6&t%5B%5D=cf_7&t%5B%5D=" class = "trackerURL">
@@ -34,7 +34,7 @@
     </div>
     <div class = "col ">
         <div class="card text-white bg-secondary mb-3 text-center" >
-            <div class="card-header d-flex align-items-center justify-content-center" style="min-height: 5rem;">Cогласовано только деканами / требуют финансирования</div>
+            <div class="card-header d-flex align-items-center justify-content-center" style="min-height: 5rem;" id = "two">Cогласовано только деканами / требуют финансирования</div>
             <div class="card-body">
               <h5 class="card-title">
                 <a href = "https://ec.nsuem.ru/projects/pf23/issues?utf8=%E2%9C%93&set_filter=1&sort=id%3Adesc&f%5B%5D=cf_26&op%5Bcf_26%5D=%21*&f%5B%5D=cf_43&op%5Bcf_43%5D=%21*&f%5B%5D=cf_27&op%5Bcf_27%5D=%21*&f%5B%5D=&c%5B%5D=tracker&c%5B%5D=cf_2&c%5B%5D=subject&c%5B%5D=cf_4&c%5B%5D=cf_5&c%5B%5D=cf_6&c%5B%5D=cf_7&c%5B%5D=estimated_hours&group_by=&t%5B%5D=estimated_hours&t%5B%5D=cf_4&t%5B%5D=cf_5&t%5B%5D=cf_6&t%5B%5D=cf_7&t%5B%5D=" class = "trackerURL">
@@ -47,7 +47,7 @@
 
     <div class = "col " >
         <div class="card text-white bg-secondary mb-3 text-center" >
-            <div class="card-header d-flex align-items-center justify-content-center" style="min-height: 5rem;">Без визы ректора</div>
+            <div class="card-header d-flex align-items-center justify-content-center" style="min-height: 5rem; " id = "three">Без визы ректора</div>
             <div class="card-body">
               <h5 class="card-title"><a href = "https://ec.nsuem.ru/projects/pf23/issues?utf8=%E2%9C%93&set_filter=1&sort=id%3Adesc&f%5B%5D=cf_26&op%5Bcf_26%5D=%3D&v%5Bcf_26%5D%5B%5D=%D0%A1%D0%BE%D0%B3%D0%BB%D0%B0%D1%81%D0%BE%D0%B2%D0%B0%D0%BD%D0%BE&f%5B%5D=cf_43&op%5Bcf_43%5D=%21*&f%5B%5D=cf_27&op%5Bcf_27%5D=%3D&v%5Bcf_27%5D%5B%5D=%D0%A1%D0%BE%D0%B3%D0%BB%D0%B0%D1%81%D0%BE%D0%B2%D0%B0%D0%BD%D0%BE&f%5B%5D=&c%5B%5D=tracker&c%5B%5D=cf_2&c%5B%5D=subject&c%5B%5D=cf_4&c%5B%5D=cf_5&c%5B%5D=cf_6&c%5B%5D=cf_7&c%5B%5D=estimated_hours&group_by=&t%5B%5D=estimated_hours&t%5B%5D=cf_4&t%5B%5D=cf_5&t%5B%5D=cf_6&t%5B%5D=cf_7&t%5B%5D=" class = "trackerURL">
                 {{issue.bezRectorVisa}}</a>
@@ -59,7 +59,7 @@
 
     <div class = "col ">
         <div class="card text-white bg-secondary mb-3 text-center" >
-            <div class="card-header d-flex align-items-center justify-content-center" style="min-height: 5rem;">Может согласовать ПАО</div>
+            <div class="card-header d-flex align-items-center justify-content-center" style="min-height: 5rem;" id = "four">Может согласовать ПАО</div>
             <div class="card-body">
             <h5 class="card-title"><a href = "https://ec.nsuem.ru/projects/pf23/issues?utf8=%E2%9C%93&set_filter=1&sort=id%3Adesc&f%5B%5D=cf_26&op%5Bcf_26%5D=%3D&v%5Bcf_26%5D%5B%5D=%D0%A1%D0%BE%D0%B3%D0%BB%D0%B0%D1%81%D0%BE%D0%B2%D0%B0%D0%BD%D0%BE&f%5B%5D=cf_43&op%5Bcf_43%5D=%21*&f%5B%5D=cf_27&op%5Bcf_27%5D=%3D&v%5Bcf_27%5D%5B%5D=%D0%A1%D0%BE%D0%B3%D0%BB%D0%B0%D1%81%D0%BE%D0%B2%D0%B0%D0%BD%D0%BE&f%5B%5D=&c%5B%5D=tracker&c%5B%5D=cf_2&c%5B%5D=subject&c%5B%5D=cf_4&c%5B%5D=cf_5&c%5B%5D=cf_6&c%5B%5D=cf_7&c%5B%5D=estimated_hours&group_by=&t%5B%5D=estimated_hours&t%5B%5D=cf_4&t%5B%5D=cf_5&t%5B%5D=cf_6&t%5B%5D=cf_7&t%5B%5D=" class = "trackerURL">
               {{issue.paoCan}}
