@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     "main",
     "pao",
     "debug_toolbar",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
