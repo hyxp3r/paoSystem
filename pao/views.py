@@ -7,6 +7,10 @@ from django.contrib.auth.decorators import login_required
 from .forms import Proccess1CFileForm
 from .files import files1C
 from .models import Tracker
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .serializer import TrackerSerializer
+
 
 
 # Create your views here.
@@ -43,3 +47,11 @@ def tracker(request):
    issue = Tracker.objects.order_by('-createdTime')[:1]
    
    return render(request, "pao/trackerIssues.html", {"issue": issue[0]})
+
+
+class TrackerAPI(APIView):
+
+   def get(self, request):
+
+      objects = Tracker.objects.order_by('-createdTime')[:1]
+      return Response({"issues": TrackerSerializer(objects, many = True).data})
