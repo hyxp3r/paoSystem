@@ -9,6 +9,8 @@ from .files import files1C
 from .models import Tracker
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
 from .serializer import TrackerSerializer
 
 
@@ -49,9 +51,8 @@ def tracker(request):
    return render(request, "pao/trackerIssues.html", {"issue": issue[0]})
 
 
-class TrackerAPI(APIView):
+class TrackerAPI(generics.ListAPIView):
 
-   def get(self, request):
-
-      objects = Tracker.objects.order_by('-createdTime')[:1]
-      return Response({"issues": TrackerSerializer(objects, many = True).data})
+   queryset = Tracker.objects.order_by('-createdTime')[:1]
+   serializer_class = TrackerSerializer
+   permission_classes = (IsAuthenticated,)
